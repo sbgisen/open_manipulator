@@ -5,8 +5,7 @@ planner_configs:
   ESTkConfigDefault:
     type: geometric::EST
     range: 0.0  # Max motion added to tree. ==> maxDistance_ default: 0.0, if 0.0 setup()
-    goal_bias: 0.05  # When close to goal select goal, with this probability. default: 0.05
-  LBKPIECEkConfigDefault:
+    goal_bias: 0.05  # When close to goal select goal, with this probability. default: 0.05 LBKPIECEkConfigDefault:
     type: geometric::LBKPIECE
     range: 0.0  # Max motion added to tree. ==> maxDistance_ default: 0.0, if 0.0, set on setup()
     border_fraction: 0.9  # Fraction of time focused on boarder default: 0.9
