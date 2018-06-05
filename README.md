@@ -18,3 +18,7 @@ ROS-enabled OpenManipulator is a full open robot platform consisting of OpenSoft
 
 ## Kinect Position Parameters
 `~/ros/src/open_manipulator/open_manipulator_description/urdf/open_manipulator_chain.xacro`
+
+## 角度の上限下限について
+上記の.xacroの中の joint->limit に, 速度/トルク/下限角/上限角, の順に記載されている.
+これらを編集することでrviz上の軌道生成に制限を加えることができる.
