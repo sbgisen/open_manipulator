@@ -15,3 +15,6 @@ ROS-enabled OpenManipulator is a full open robot platform consisting of OpenSoft
 `roslaunch open_manipulator_moveit open_manipulator_demo.launch`
 
 `roslaunch kinect2_bridge kinect2_bridge.launch base_name:=camera fps_limit:=2`
+
+## Kinect Position Parameters
+`~/ros/src/open_manipulator/open_manipulator_description/urdf/open_manipulator_chain.xacro`
