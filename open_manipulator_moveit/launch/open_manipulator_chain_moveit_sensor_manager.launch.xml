@@ -1,3 +1,3 @@
 <launch>
-    <rosparam command="load" file="$(find open_manipulator_moveit)/config/sensors_kinect.yaml" />
+    <rosparam command="load" file="$(find open_manipulator_moveit)/config/sensor_kinect.yaml" />
 </launch>
