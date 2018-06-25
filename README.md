@@ -7,6 +7,11 @@ ROS-enabled OpenManipulator is a full open robot platform consisting of OpenSoft
 # Documents
 - http://emanual.robotis.com/docs/en/platform/openmanipulator/
 
+# Software Set up
+
+『ROS ロボットプログラミングバイブル』のp375以降を参照.
+特に`ros-kinetic-robotis-math`のapt-getが必要なことが公式HPには書いてないので注意が必要.
+
 
 # Set up
 USB2Dynamixelを接続したら実行
