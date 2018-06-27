@@ -36,6 +36,7 @@ DynamixelController::DynamixelController()
   dxl_wb_->addSyncWrite("Goal_Position");
   dxl_wb_->addSyncRead("Present_Position");
   dxl_wb_->addSyncRead("Present_Velocity");
+  dxl_wb_->addSyncRead("Present_Current");
 
   for (int index = 0; index < dxl_cnt_; index++)
     dxl_wb_->jointMode(dxl_id_[index]);
@@ -77,6 +78,13 @@ void DynamixelController::readDynamixelState(void)
 
   for (int index = 0; index < dxl_cnt_; index++)
     present_velocity[index] = get_present_velocity[index];
+  
+  int32_t* get_present_current = dxl_wb_->syncRead("Present_Current");
+  int32_t present_current[dxl_cnt_] = {0, };
+  
+  for (int index = 0; index < dxl_cnt_; index++)
+    present_current[index] = get_present_current[index];
+  
 
   sensor_msgs::JointState dynamixel_;
   dynamixel_.header.stamp = ros::Time::now();
@@ -90,6 +98,10 @@ void DynamixelController::readDynamixelState(void)
 
     dynamixel_.position.push_back(dxl_wb_->convertValue2Radian(dxl_id_[index], present_position[index]));
     dynamixel_.velocity.push_back(dxl_wb_->convertValue2Velocity(dxl_id_[index], present_velocity[index]));
+
+    dynamixel_.effort.push_back(dxl_wb_->convertValue2Torque(dxl_id_[index], present_current[index]));
+    // unit of efforts output value is [N.m]
+
   }
   present_states_pub_.publish(dynamixel_);
 }
